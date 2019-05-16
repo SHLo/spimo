@@ -2,10 +2,8 @@ FROM resin/raspberrypi3-debian:stretch
 
 WORKDIR /app
 
-RUN apt-get update && apt-get upgrade
-
 # Install dependencies and clean-up apt sources.
-RUN apt-get install -y \
+RUN apt-get update && apt-get upgrade && apt-get install -y \
     build-essential \
     cmake \
     gfortran \
@@ -36,8 +34,11 @@ RUN apt-get install -y \
     wget \
     libffi-dev \
     libssl-dev  \
+    rpi.gpio \
   && rm -rf /var/lib/apt/lists/*
 #RUN pip3 install --upgrade pip
 RUN pip3 install --upgrade setuptools
 RUN pip3 install azure-mgmt-eventhub
 RUN pip3 install azure-eventhub
+
+RUN apt-get install -y rpi.gpio
