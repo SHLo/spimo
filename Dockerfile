@@ -34,8 +34,6 @@ RUN apt-get update && apt-get upgrade && apt-get install -y \
     wget \
     libffi-dev \
     libssl-dev  \
-    rpi.gpio \
-    python3-smbus \
   && rm -rf /var/lib/apt/lists/*
 #RUN pip3 install --upgrade pip
 RUN pip3 install --upgrade setuptools
